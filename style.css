@@ -1,0 +1,258 @@
+/* ----- CUSTOM PROPERTIES ----- */
+
+:root {
+  --clr-neutral-200: #ffffff; 
+  --clr-neutral-300: #bfc4c0;
+  --clr-neutral-700: #2b2839;
+
+  --clr-blue-700: #b4c9f9; 
+  --clr-green-200: #eef6f0;
+  --clr-green-400: #e0f0e5;
+  --clr-green-700: #a9d1b5;
+  --clr-yellow-200: #fffce5;
+  --clr-yellow-400: #fffad1;
+  --clr-yellow-700: #fbf3ac;
+
+  --clr-red-700: #fb4a4a;
+
+  --ff-regular: "Karla", Arial, sans-serif;
+  --ff-score: "Cursed Timer ULiL", sans-serif;
+
+  --fw-regular: 400;
+}
+
+/* ----- CSS RESET ----- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ----- GENERAL STYLES ----- */
+
+body {
+  font-family: var(--ff-regular);
+  font-weight: var(--fw-regular);
+  color: var(--clr-neutral-700);
+  background-color: var(--clr-neutral-200); /* Modify */
+
+  /* Live Demo Only */
+  display: grid;
+  place-content: center;
+}
+
+/* ----- BUTTONS ----- */
+
+.btn {
+  width: 100%;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 2px solid var(--clr-neutral-200);
+  border-radius: 0.5rem;
+  background-color: var(--clr-neutral-200);
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.plus-btn {
+  font-size: 2rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.plus-btn:is(:hover, :active) {
+  color: var(--clr-neutral-200);
+}
+
+.reset-btn {
+  font-size: 1.125rem;
+  padding: 0.5rem 0;
+  border-color: var(--clr-neutral-700);
+}
+
+.plus-btn.player-one:is(:hover, :active),
+.plus-btn.player-two:is(:hover, :active) {
+  color: var(--clr-neutral-200);
+  background-color: var(--clr-neutral-700);
+}
+
+.btn.player-one-lt:is(:hover, :active),
+.btn.player-two-lt:is(:hover, :active),
+.reset-btn:is(:hover, :active),
+.reset-btn--highlight {
+  color: var(--clr-neutral-200);
+  border-color: var(--clr-neutral-200);
+  background-color: var(--clr-red-700);
+}
+
+.btn.player-one-lt:disabled,
+.btn.player-two-lt:disabled {
+  color: var(--clr-neutral-700);
+  background-color: var(--clr-neutral-300);
+}
+
+/* ----- ICONS ----- */
+
+.fa-icon {
+  color: var(--clr-neutral-700);
+  font-size: 1.5em;
+}
+
+/* ----- LAYOUT ----- */
+
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem 0;
+}
+
+.scores-group {
+  display: grid;
+  grid-template: auto / 1fr 1fr;
+  gap: 0 0.5rem;
+}
+
+.controls-group {
+  display: grid;
+  gap: 0 0.375rem;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  grid-template-areas:
+    "plus1 space space plus2"
+    "plus1 minus1 minus2 plus2";
+}
+
+.btn.plus-btn.player-one {
+  grid-area: plus1;
+}
+
+.btn.plus-btn.player-two {
+  grid-area: plus2;
+}
+
+.btn.player-one-lt {
+  grid-area: minus1;
+}
+
+.btn.player-two-lt {
+  grid-area: minus2;
+}
+
+.games-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ----- BLOCK STYLES ----- */
+
+.scoreboard {
+  width: 95vw;
+  padding: 1rem;
+  border: 3px solid var(--clr-neutral-200);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: var(--clr-blue-700);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Players*/
+.player {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+  border: 2px solid var(--clr-neutral-200);
+  border-bottom: none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.325rem;
+}
+
+.player-one {
+  background-color: var(--clr-yellow-700);
+}
+
+.player-one-lt {
+  background-color: var(--clr-yellow-400);
+}
+
+.player-two {
+  background-color: var(--clr-green-700);
+}
+
+.player-two-lt {
+  background-color: var(--clr-green-400);
+}
+
+/* Scores */
+.score {
+  font-family: var(--ff-score);
+  font-size: 5.5rem;
+  line-height: 7rem;
+  color: var(--clr-neutral-200);
+  background-color: var(--clr-neutral-700);
+  border: 2px solid var(--clr-neutral-200);
+  padding-top: 0.5rem;
+}
+
+/* Game Results */
+.game {
+  font-weight: 700;
+  width: 1.75rem;
+  background-color: var(--clr-neutral-200);
+  border: 2px solid var(--clr-neutral-700);
+  border-radius: 50%;
+}
+
+/* ----- MEDIA QUERIES ----- */
+
+@media (max-width: 375px) {
+  .scoreboard {
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media (min-width: 500px) {
+  .scoreboard {
+    width: 425px;
+    padding: 1.25rem;
+  }
+
+  .games-group {
+    justify-content: space-around;
+  }
+}
