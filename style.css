@@ -1,11 +1,11 @@
 /* ----- CUSTOM PROPERTIES ----- */
 
 :root {
-  --clr-neutral-200: #ffffff; 
+  --clr-neutral-200: #ffffff;
   --clr-neutral-300: #bfc4c0;
   --clr-neutral-700: #2b2839;
 
-  --clr-blue-700: #b4c9f9; 
+  --clr-blue-700: #b4c9f9;
   --clr-green-200: #eef6f0;
   --clr-green-400: #e0f0e5;
   --clr-green-700: #a9d1b5;
@@ -128,7 +128,7 @@ body {
 
 .fa-icon {
   color: var(--clr-neutral-700);
-  font-size: 1.5em;
+  font-size: 1.75rem;
 }
 
 /* ----- LAYOUT ----- */
@@ -137,6 +137,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.875rem 0;
+}
+
+.games-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
 .scores-group {
@@ -153,6 +160,7 @@ body {
   grid-template-areas:
     "plus1 space space plus2"
     "plus1 minus1 minus2 plus2";
+  margin-bottom: 0.5rem;
 }
 
 .btn.plus-btn.player-one {
@@ -169,12 +177,6 @@ body {
 
 .btn.player-two-lt {
   grid-area: minus2;
-}
-
-.games-group {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 /* ----- BLOCK STYLES ----- */
